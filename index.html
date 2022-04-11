@@ -1,0 +1,118 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+	<title>Algebraic Programming</title>
+	<link rel="stylesheet" type="text/css" href="/css/pure/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="/css/pure/styles.css">
+	<link rel="stylesheet" type="text/css" href="/css/extra.css">
+</head>
+<body>
+
+<div id="layout">
+	<a href="#menu" id="menuLink" class="menu-link">
+		<span></span>
+	</a>
+
+	<div id="menu">
+		<div class="pure-menu">
+			<a class="pure-menu-heading" href="#alp">ALP</a>
+
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item">
+					<a href="#view" class="pure-menu-link">Our View</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="#projects" class="pure-menu-link">Projects</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="#alp" class="pure-menu-link">- C++ ALP</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="#mlir-linnea" class="pure-menu-link">- MLIR Linnea</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="#lpf" class="pure-menu-link">- LPF</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="#contact" class="pure-menu-link">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="main">
+		<div class="header">
+			<h1>Algebraic Programming</h1>
+			<h2>Auto-parallelising and auto-optimising frameworks for algebraically expressed codes</h2>
+		</div>
+
+		<div class="content">
+			<p>Algebraic Programming (ALP) encompasses research in various software technologies that allow programming with explicit algebraic structures, combined with their automated parallelisation and optimisation.<p>
+			<h2 class="content-subhead" id="view">Our view</h2>
+			<p>Our view is that algebraic structures and properties determine the type of optimisations applicable to programs. Instead of software frameworks and programming models attempting to infer which optimisations are applicable, we instead submit that users should annotate programs explicitly with the algebraic knowledge they quite often already assume while coding. Optimising software frameworks may then immediately exploit this knowledge.</p>
+			<p>In contrast, when translating algorithms to code using contemporary tools, algebraic information is lost only for compilers and other tools to re-discover them for optimisation passes. Instead of such a potentially lossy and often suboptimal bottom-up approach, ALP allows for an optimal top-down processing of programs.</p>
+			<p>We pursue this direction at various levels of the software stack: from compiler and IRs to low-level communication layers, DSLs, programming models, and template libraries. Our projects relate to ongoing, open research, each summarised below. We warmly invite everyone interested to download, try, use, and contribute to the projects collected here.</p>
+
+			<h2 class="content-subhead" id="projects">Projects</h2>
+			<p>We present the main <a href="#alp">ALP project</a> as a C++ realisation of the above vision. This project is a direct evolution of ALP/GraphBLAS that we have been developing since 2016. Whereas ALP/GraphBLAS focuses on generalised sparse linear algebra, we are currently investigating ALP for generalised <em>dense</em> linear algebraic programming. To have ALP generate efficient dense codes, we believe that novel compiler technologies such as <a href="https://mlir.llvm.org/">MLIR</a> are pivotal; see also our <a href="#mlir-linnea">MLIR Linnea project</a>.</p>
+			<p>Finally, in this day and age where multi-core programming has become mandatory even for driving commodity devices, auto-parallelisation and the integration of optimised parallel software into a wide diversity of software stacks is required. The <a href="#lpf">LPF project</a> addresses some of the barriers associated with resolving this critical challenge.</p>
+			<p>In summary, we currently maintain the following projects:</p>
+			<ul>
+				<li><a href="#alp">C++ ALP</a> for Algebraic Programming in C++;</li>
+				<li><a href="#mlir-linnea">MLIR Linnea</a> for high-level linear algebraic compiler transformations; and</li>
+				<li><a href="#lpf">Lightweight Parallel Foundations</a> for high-performance and predictable distributed-memory communications used for auto-parallelisation.</li>
+			</ul>
+
+			<div class="disclaimer">
+				<h4>DISCLAIMER</h4>
+				<p>The repositories maintained here are part of our research activities and as such, is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. See also the licenses associated to each individual repository found under this page.</p>
+			</div>
+	
+			<h3 id="alp">C++ ALP, and ALP/GraphBLAS</h3>
+			<p>The <a href="https://github.com/Algebraic-Programming/ALP">ALP project</a> provides an auto-parallelising and auto-optimising C++17 Template Library that allows expressing sequential code with explicit linear algebraic annotations. The syntax follows closely that of the Standard Template Library (STL). ALP programmers need not be aware of any deep parallelisation or optimisation concerns: you write the maths, and the system does the rest!</p>
+			<p>Part of ALP is our hybrid shared- and distributed-memory parallel <a href="https://github.com/Algebraic-Programming/ALP">ALP/GraphBLAS</a>. An earlier version was presented in detail in <a href="http://albert-jan.yzelman.net/PDFs/yzelman20.pdf">2020</a>, though its specification and implementation have evolved since. We are preparing an updated paper and associated version 1.0 of ALP/GraphBLAS.</p>
+			<p>ALP has several unique features that were initially introduced and evolved as part of ALP/GraphBLAS. These include:</p>
+			<ul>
+				<li><em>algebraic type traits</em>, which allow the framework to inspect, at compile-time, whether e.g. operators have certain algebraic properties-- and adapt optimisation passes accordingly. For example, if a series of commutative operator applications is requested, then a framework could reorder that series in order to improve cache hit rates. Algebraic type traits may also be inspected by user codes and libraries implemented on top of ALP.</li>
+				<li><em>user processes</em>, providing <em>STL-compatible I/O</em> through iterators, and providing both sequential and <em>parallel I/O</em> for speeding up workloads that interact with distributed data. Through the ALP <em>Launcher</em> abstraction, which encapsulates a group of user processes that collaborative execute ALP codes, programs are furthermore easily integrated into auxiliary parallel contexts. This enables, for example, workers in a Spark cluster to <a href="https://arxiv.org/pdf/1906.03196">temporarily band together and execute a parallel ALP/GraphBLAS program</a>.</li>
+				<li><em>performance semantics</em>. Implementations may differ in the performance semantics they define, but must specify clear costings for each ALP primitive. Cost dimensions include work, data movement, and memory usage. Performance semantics help gauge the scalability characteristics of executing ALP workloads on different datasets and different scales of compute systems, helps algorithm designers decide on the best possible forms of an ALP program, and helps systems select the best possible implementations for given workloads.</li>
+			</ul>
+			<p>See the <a href="https://github.com/Algebraic-Programming/ALP">ALP project page</a> for more details and how to get started!</p>
+
+			<h3 id="mlir-linnea">MLIR Linnea</h3>
+			<p>The <a href="https://github.com/Algebraic-Programming/MLIR-Linnea">MLIR Linnea dialect</a> aims to enable the representation of high-level linear algebraic concepts within MLIR. This includes computations on structured matrices and vectors, where information on the symmetry of a matrix may, for example, drive the selection for a matrix decomposition algorithm or drive the optimised synthesis of the linear algebraic operations it involves.</p>
+			<p>The design of MLIR Linnea dialect builds on previous research by <a href="https://dl.acm.org/doi/pdf/10.1145/3446632">Barthels et al.</a> and the corresponding <a href="https://github.com/HPAC/linnea">Linnea tool</a>. The dialect operates on two-dimensional tensors as a custom type, and introduces new attributes and operations for reasoning over this matrix type. Properties are inferred and propagated through a symbolic engine. The proposed dialect is one level higher compared to <a href="https://mlir.llvm.org/docs/Dialects/Linalg/">LinAlg</a> (which we lower to) and additionally relies on the built-in MLIR tensor type. MLIR Linnea optimisations include a subset of those in the <a href="https://dl.acm.org/doi/pdf/10.1145/3168804">generalised matrix chain algorithm</a>, while added functionalities include semiring annotations.</p>
+			<p>For more details and current progress, see the <a href="https://github.com/Algebraic-Programming/MLIR-Linnea">MLIR Linnea project page</a>!</p>
+
+			<h3 id="lpf">Lightweight Parallel Foundations</h3>
+			<p>We are pleased to release the Lightweight Parallel Foundations (LPF) to the public. This communication layer is designed to both implement, as well as enable the wide use of, immortal algorithms. The LPF is not intended as a replacement of other high performance communication libraries such as MPI or BSPlib, nor is it intended as a replacement of frameworks like Hadoop, Spark, or Giraph.</p>
+			<p>Instead, the LPF allows for the implementation of proven optimal algorithms in a way they can be reused from any other third-party parallel application, no matter which (parallel) framework that application is composed in. This works towards realising the vision <em>immortal algorithms</em>: a small set of often-used and often performance-critical algorithms are ideally designed once, proven optimal once, implemented once, and reused forever.</p>
+			<p>The LPF enables the distributed-memory auto-parallelisation that users of the <a href="#alp">C++ ALP framework</a> enjoy, and also enables its integration with arbitrary auxiliary application frameworks.</p>
+			<p>For more details, visit the <a href="https://github.com/Algebraic-Programming/LPF">project page</a> or the corresponding short <a href="https://arxiv.org/abs/1906.03196">ArXiV paper</a>.</p>
+
+			<h2 class="content-subhead" id="contact">Feedback, bug reports, and contributions</h2>
+			<p>Feel free to make use of the issue or discussion boards on the individual project pages; we encourage and look forward to free and open interactions. Our researchers are making use of the exact same system and are looking forward to interacting with you!</p>
+
+			<table class="contacts">
+				<tr>
+					<td>Albert-Jan N. Yzelman, Huawei Technologies Switzerland AG</td>
+					<td class="email">albertjan&lt;dot lastname at&gt;huawei.com</td>
+				</tr>
+			</table>
+		</div>
+		<div class="footer">
+			<div class="content">
+			Contents copyright 2022 by Huawei Technologies Switzerland AG.
+			This website uses the BSD-licensed <a href="https://purecss.io">Pure.css</a>.
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/js/ui.js"></script>
+
+</body>
+</html>
