@@ -1,7 +1,3 @@
 plugins:
   - jekyll-seo-tag
 
-author:
-  name: Albert-Jan N. Yzelman
-  url: http://albert-jan.yzelman.net/
-
