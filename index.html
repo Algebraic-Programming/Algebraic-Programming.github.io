@@ -46,6 +46,12 @@ author:
 					<a href="#lpf" class="pure-menu-link">- LPF</a>
 				</li>
 				<li class="pure-menu-item">
+					<a href="#manuals" class="pure-menu-link">Manuals</a>
+				</li>
+				<li class="pure-menu-item">
+					<a href="http://albert-jan.yzelman.net/alp/user" class="pure-menu-link">- C++ ALP</a>
+				</li>
+				<li class="pure-menu-item">
 					<a href="#contact" class="pure-menu-link">Contact</a>
 				</li>
 			</ul>
@@ -79,7 +85,7 @@ author:
 				<h4>DISCLAIMER</h4>
 				<p>The repositories maintained here are part of our research activities and as such, is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. See also the licenses associated to each individual repository found under this page.</p>
 			</div>
-	
+
 			<h3 id="alp">C++ ALP, and ALP/GraphBLAS</h3>
 			<p>The <a href="https://github.com/Algebraic-Programming/ALP">ALP project</a> provides an auto-parallelising and auto-optimising C++17 Template Library that allows expressing sequential code with explicit linear algebraic annotations. The syntax follows closely that of the Standard Template Library (STL). ALP programmers need not be aware of any deep parallelisation or optimisation concerns: you write the maths, and the system does the rest!</p>
 			<p>Part of ALP is our hybrid shared- and distributed-memory parallel <a href="https://github.com/Algebraic-Programming/ALP">ALP/GraphBLAS</a>. An earlier version was presented in detail in <a href="http://albert-jan.yzelman.net/PDFs/yzelman20.pdf">2020</a>, though its specification and implementation have evolved since. We are preparing an updated paper and associated version 1.0 of ALP/GraphBLAS.</p>
@@ -101,6 +107,18 @@ author:
 			<p>Instead, the LPF allows for the implementation of proven optimal algorithms in a way they can be reused from any other third-party parallel application, no matter which (parallel) framework that application is composed in. This works towards realising the vision <em>immortal algorithms</em>: a small set of often-used and often performance-critical algorithms are ideally designed once, proven optimal once, implemented once, and reused forever.</p>
 			<p>The LPF enables the distributed-memory auto-parallelisation that users of the <a href="#alp">C++ ALP framework</a> enjoy, and also enables its integration with arbitrary auxiliary application frameworks.</p>
 			<p>For more details, visit the <a href="https://github.com/Algebraic-Programming/LPF">project page</a> or the corresponding short <a href="https://arxiv.org/abs/1906.03196">ArXiV paper</a>.</p>
+
+			<h2 class="content-subhead" id="manuals">Manuals</h2>
+			<p>For users of our programming models, we provide the following reference manuals:</p>
+			<ul>
+				<li>C++ ALP:
+					<ul>
+						<li><a href="http://albert-jan.yzelman.net/alp/user">HTML</a> (online),</li>
+						<li><a href="http://albert-jan.yzelman.net/alp/user/html.tar.gz">HTML</a> (download archive),</li>
+						<li><a href="http://albert-jan.yzelman.net/alp/user/refman.pdf">PDF</a>.</li>
+					</ul>
+				</li>
+			</ul>
 
 			<h2 class="content-subhead" id="contact">Feedback, bug reports, and contributions</h2>
 			<p>Feel free to make use of the issue or discussion boards on the individual project pages; we encourage and look forward to free and open interactions. Our researchers are making use of the exact same system and are looking forward to interacting with you!</p>
