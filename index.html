@@ -68,7 +68,7 @@ author:
 			<ul>
 				<li><b>New release:</b> <a href="https://github.com/Algebraic-Programming/ALP/releases/tag/v0.7">version 0.7</a> of ALP, ALP/GraphBLAS, and ALP/Pregel</li>
 			</ul>
-			<p>Algebraic Programming (ALP) encompasses research in various software technologies that allow programming with explicit algebraic structures, combined with their automated parallelisation and optimisation.<p>
+			<p>Algebraic Programming (ALP) encompasses research in various software technologies that allow programming with explicit algebraic structures, combined with their automated parallelisation and optimisation.</p>
 			<h2 class="content-subhead" id="view">Our view</h2>
 			<p>Our view is that algebraic structures and properties determine the type of optimisations applicable to programs. Instead of software frameworks and programming models attempting to infer which optimisations are applicable, we instead submit that users should annotate programs explicitly with the algebraic knowledge they quite often already assume while coding. Optimising software frameworks may then immediately exploit this knowledge.</p>
 			<p>In contrast, when translating algorithms to code using contemporary tools, algebraic information is lost only for compilers and other tools to re-discover them for optimisation passes. Instead of such a potentially lossy and often suboptimal bottom-up approach, ALP allows for an optimal top-down processing of programs.</p>
@@ -86,7 +86,7 @@ author:
 
 			<div class="disclaimer">
 				<h4>DISCLAIMER</h4>
-				<p>The repositories maintained here are part of our research activities and as such, is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. See also the licenses associated to each individual repository found under this page.</p>
+				<p>The repositories maintained here are part of our research activities and as such, are provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. See also the licenses associated to each individual repository found under this page.</p>
 			</div>
 
 			<h3 id="alp">C++ ALP, and ALP/GraphBLAS</h3>
@@ -95,7 +95,7 @@ author:
 			<p>ALP has several unique features that were initially introduced and evolved as part of ALP/GraphBLAS. These include:</p>
 			<ul>
 				<li><em>algebraic type traits</em>, which allow the framework to inspect, at compile-time, whether e.g. operators have certain algebraic properties-- and adapt optimisation passes accordingly. For example, if a series of commutative operator applications is requested, then a framework could reorder that series in order to improve cache hit rates. Algebraic type traits may also be inspected by user codes and libraries implemented on top of ALP.</li>
-				<li><em>user processes</em>, providing <em>STL-compatible I/O</em> through iterators, and providing both sequential and <em>parallel I/O</em> for speeding up workloads that interact with distributed data. Through the ALP <em>Launcher</em> abstraction, which encapsulates a group of user processes that collaborative execute ALP codes, programs are furthermore easily integrated into auxiliary parallel contexts. This enables, for example, workers in a Spark cluster to <a href="https://arxiv.org/pdf/1906.03196">temporarily band together and execute a parallel ALP/GraphBLAS program</a>.</li>
+				<li><em>user processes</em>, providing <em>STL-compatible I/O</em> through iterators, and providing both sequential and <em>parallel I/O</em> for speeding up workloads that interact with distributed data. Through the ALP <em>Launcher</em> abstraction, which encapsulates a group of user processes that collaboratively execute ALP codes, programs are furthermore easily integrated into auxiliary parallel contexts. This enables, for example, workers in a Spark cluster to <a href="https://arxiv.org/pdf/1906.03196">temporarily band together and execute a parallel ALP/GraphBLAS program</a>.</li>
 				<li><em>performance semantics</em>. Implementations may differ in the performance semantics they define, but must specify clear costings for each ALP primitive. Cost dimensions include work, data movement, and memory usage. Performance semantics help gauge the scalability characteristics of executing ALP workloads on different datasets and different scales of compute systems, helps algorithm designers decide on the best possible forms of an ALP program, and helps systems select the best possible implementations for given workloads.</li>
 			</ul>
 			<p>See the <a href="https://github.com/Algebraic-Programming/ALP">ALP project page</a> for more details and how to get started!</p>
@@ -132,14 +132,14 @@ author:
 
 			<table class="contacts">
 				<tr>
-					<td>Albert-Jan N. Yzelman, Huawei Technologies Switzerland AG</td>
-					<td class="email">albertjan&lt;dot lastname at&gt;huawei.com</td>
+					<td>Albert-Jan N. Yzelman</td>
+					<td class="email">albert-jan at &lt;last name&gt;.net</td>
 				</tr>
 			</table>
 		</div>
 		<div class="footer">
 			<div class="content">
-			Contents copyright 2022 by Huawei Technologies Switzerland AG.
+			Website contents copyright 2022&ndash;March 2026 by Huawei Technologies Switzerland AG.
 			This website uses the BSD-licensed <a href="https://purecss.io">Pure.css</a>.
 			</div>
 		</div>
